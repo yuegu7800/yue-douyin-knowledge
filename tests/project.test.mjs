@@ -13,7 +13,9 @@ test("manifest is valid for a new community plugin", () => {
   assert.match(manifest.id, /^[a-z-]+$/);
   assert.equal(manifest.id.includes("obsidian"), false);
   assert.equal(manifest.id.endsWith("plugin"), false);
-  assert.equal(manifest.version, "1.0.0");
+  const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
+  assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
+  assert.equal(manifest.version, packageJson.version);
   assert.equal(manifest.isDesktopOnly, true);
   assert.ok(manifest.description.length <= 250);
   assert.ok(manifest.description.endsWith("."));
@@ -69,4 +71,3 @@ test("new source does not import the legacy plugin", () => {
   assert.equal(source.includes("lyxdream"), false);
   assert.equal(source.includes("out_dir"), false);
 });
-
