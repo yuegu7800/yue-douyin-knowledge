@@ -1,0 +1,6 @@
+node_modules/
+local-node-modules/
+main.js
+*.map
+.DS_Store
+data.json
