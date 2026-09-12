@@ -1,6 +1,6 @@
 {
   "name": "yue-douyin-knowledge",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Independent Obsidian plugin for importing Douyin knowledge",
   "main": "main.js",
   "scripts": {

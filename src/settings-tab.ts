@@ -22,7 +22,7 @@ export class YueSettingsTab extends PluginSettingTab {
     return [
       {
         type: "group",
-        heading: "Yue Douyin Knowledge",
+        heading: "常规",
         items: [
           {
             name: "使用说明",
@@ -178,7 +178,7 @@ export class YueSettingsTab extends PluginSettingTab {
   override display(): void {
     const { containerEl } = this;
     containerEl.empty();
-    new Setting(containerEl).setName("Yue Douyin Knowledge").setHeading();
+    new Setting(containerEl).setName("常规").setHeading();
     containerEl.createEl("p", {
       text: "插件只把内容写入当前知识库；解析、OCR 和转写由你电脑上的本地服务完成。",
       cls: "setting-item-description",
