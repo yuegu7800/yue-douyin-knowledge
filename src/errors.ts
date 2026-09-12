@@ -27,15 +27,14 @@ export class YueError extends Error {
   }
 }
 
-export function apiFailureToError(
-  payload: ApiFailure,
-  status: number
-): YueError {
-  return new YueError(payload.error || `本地服务返回 ${status}`, {
-    code: payload.error_code,
-    stage: payload.stage,
-    requestId: payload.request_id,
-    retryable: payload.retryable,
+export function apiFailureToError(payload: unknown, status: number): YueError {
+  const failure: ApiFailure =
+    payload !== null && typeof payload === "object" ? payload : {};
+  return new YueError(failure.error || `本地服务返回 ${status}`, {
+    code: failure.error_code,
+    stage: failure.stage,
+    requestId: failure.request_id,
+    retryable: failure.retryable,
     status,
   });
 }
@@ -52,4 +51,3 @@ export function describeError(error: unknown): string {
   if (error.retryable) lines.push("此错误可以稍后重试。");
   return lines.join("\n");
 }
-

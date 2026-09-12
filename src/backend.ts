@@ -1,6 +1,5 @@
 import { requestUrl, type RequestUrlParam, type RequestUrlResponse } from "obsidian";
 import type {
-  ApiFailure,
   ContentInfo,
   DiscoveryResponse,
   ExtractResult,
@@ -106,7 +105,7 @@ export class BackendClient {
       });
     }
     if (response.status < 200 || response.status >= 300) {
-      throw apiFailureToError((payload ?? {}) as ApiFailure, response.status);
+      throw apiFailureToError(payload, response.status);
     }
     if (!payload || typeof payload !== "object") {
       throw new YueError("本地服务返回的数据格式不正确。", {
@@ -148,4 +147,3 @@ export class BackendClient {
     }
   }
 }
-

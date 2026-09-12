@@ -1,7 +1,7 @@
 {
   "id": "yue-douyin-knowledge",
   "name": "Yue Douyin Knowledge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "minAppVersion": "1.4.0",
   "description": "Import Douyin captions, searches, and related content into a local Markdown knowledge base.",
   "author": "yuegu7800",

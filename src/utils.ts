@@ -57,7 +57,7 @@ export function safePathSegment(value: string, fallback: string): string {
 }
 
 export function yamlString(value: string): string {
-  return JSON.stringify(value.replace(/\u0000/g, ""));
+  return JSON.stringify(value.split("\u0000").join(""));
 }
 
 export function joinUrl(baseUrl: string, pathOrUrl: string): string {
@@ -74,4 +74,3 @@ export function fileExtensionFromUrl(value: string): string {
     return "jpg";
   }
 }
-
